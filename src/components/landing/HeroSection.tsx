@@ -4,22 +4,27 @@ import { useRouter } from "next/navigation";
 
 const HeroSection = () => {
   const router = useRouter();
+
   return (
-    <section className="flex flex-col items-center w-full gap-5 hero-section h-lvh place-content-center">
-      <h4 className="text-gray-500">TOP PLATFORM FOR ORGANISING EDUCATION</h4>
-      <div className="flex flex-col items-center gap-12">
-        <h2 className="text-6xl font-bold text-center">
-          Improve your Learning <br /> with Gyanaguru
+    <section className="flex flex-col items-center justify-center w-full h-screen gap-8 hero-section">
+      <h4 className="text-xl text-gray-500">Master the Art of Scrum</h4>
+      <div className="flex flex-col items-center gap-8 text-center">
+        <h2 className="text-2xl font-bold leading-none md:text-6xl md:leading-tight">
+          Unlock Your Potential as a <br />
+          <span className="text-blue-600">Scrum Master</span>
         </h2>
-        <div className="flex gap-4 ">
-          <button className="px-4 py-3 border border-gray-200 shadow-2xl outline-none cursor-pointer rounded-2xl shadow-gray-200 h-fit">
-            How it work's
+        <p className="text-xl text-gray-600 md:text-2xl">
+          Dive into a world of advanced Scrum knowledge and techniques
+        </p>
+        <div className="flex flex-col gap-4 sm:flex-row">
+          <button className="px-8 py-3 text-lg font-semibold text-white bg-blue-600 rounded-full shadow-lg outline-none cursor-pointer hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+            Start Learning
           </button>
           <button
-            onClick={() => router.push("/login")}
-            className="px-4 py-3 text-white bg-black shadow-2xl outline-none cursor-pointer shadow-gray-200 rounded-2xl h-fit"
+            onClick={() => router.push("/community")}
+            className="px-8 py-3 text-lg font-semibold text-blue-600 bg-white border border-blue-600 rounded-full shadow-lg outline-none cursor-pointer hover:bg-blue-50 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
           >
-            Get Started for Free
+            Join the Community
           </button>
         </div>
       </div>

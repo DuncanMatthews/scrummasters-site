@@ -6,6 +6,7 @@ import "material-symbols";
 import { getServerSession } from "next-auth";
 import SessionProvider from "./providers";
 import { redirect } from "next/navigation";
+import HomeFooter from "@/components/landing/HomeFooter";
 
 const inter = Inter({ subsets: ["latin"] });
 const manrope = Manrope({
@@ -23,12 +24,51 @@ const ibmPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],
   display: "swap",
 });
+
 export const metadata: Metadata = {
   title: {
-    default: "Gyanaguru",
-    template: "%s - Gyanaguru",
+    default: "ScrumMasterHub",
+    template: "%s | ScrumMasterHub",
   },
-  description: "Learn for free with Gyanaguru",
+  description:
+    "Unlock your potential as a Scrum Master. Learn advanced Scrum techniques, connect with a vibrant community, and elevate your Scrum skills.",
+  openGraph: {
+    title: "ScrumMasterHub",
+    description:
+      "Unlock your potential as a Scrum Master. Learn advanced Scrum techniques, connect with a vibrant community, and elevate your Scrum skills.",
+    url: "https://www.scrummasterhub.com",
+    siteName: "ScrumMasterHub",
+    images: [
+      {
+        url: "https://www.scrummasterhub.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "en-US",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  twitter: {
+    title: "ScrumMasterHub",
+    card: "summary_large_image",
+    description:
+      "Unlock your potential as a Scrum Master. Learn advanced Scrum techniques, connect with a vibrant community, and elevate your Scrum skills.",
+    images: ["https://www.scrummasterhub.com/og-image.jpg"],
+  },
+  icons: {
+    shortcut: "/favicon.ico",
+  },
 };
 
 export default async function RootLayout({
@@ -42,9 +82,10 @@ export default async function RootLayout({
   }
   return (
     <html lang="en" className="dark">
-      <body className={`${roboto.className} dark`}>
+      <body className={`${roboto.className} dark px-10`}>
         <SessionProvider session={session}>{children}</SessionProvider>
       </body>
+      <HomeFooter />
     </html>
   );
 }
